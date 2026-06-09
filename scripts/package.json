@@ -1,0 +1,18 @@
+{
+  "name": "@music-tools/scripts",
+  "version": "1.0.0",
+  "description": "Standalone utilities for managing your GitHub-backed music library",
+  "type": "module",
+  "scripts": {
+    "download": "node download.js",
+    "upload": "node upload.js",
+    "list": "node list.js"
+  },
+  "dependencies": {
+    "@octokit/rest": "^20.1.1",
+    "dotenv": "^16.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
