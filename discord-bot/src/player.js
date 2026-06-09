@@ -178,7 +178,6 @@ export class MusicPlayer {
   /** Start playing immediately (enqueue first if needed) */
   async play(track) {
     this._clearIdleTimeout();
-    this._clearAloneTimeout();
     console.log(`[Player:${this.guildId}] play() → ${track.displayName}`);
     this.current = track;
     let stream;
@@ -205,9 +204,6 @@ export class MusicPlayer {
     resource.volume?.setVolume(this.volume);
     this.audioPlayer.play(resource);
     console.log(`[Player:${this.guildId}] audioPlayer.play() called`);
-    // Re-evaluate alone status after starting playback — if the bot is alone,
-    // the alone timeout needs to restart (it was cleared above).
-    this.checkAloneStatus();
   }
 
   /**
